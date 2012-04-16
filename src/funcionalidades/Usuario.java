@@ -7,9 +7,9 @@ import java.util.ArrayList;
 public class Usuario {
 	
 	private String login, senha, nome, endereco, email;
-	private int ID;
+	private String ID;
 	
-	private List<Carona> caronas = new ArrayList<Carona>();	
+	private List<Carona> caronas;
 	
 	public Usuario(String login, String senha, String nome, String endereco, String email) throws Exception{
 		this.setLogin(login);
@@ -17,6 +17,13 @@ public class Usuario {
 		this.setNome(nome);
 		this.setEndereco(endereco);
 		this.setEmail(email);
+		
+		caronas = new ArrayList<Carona>();
+	}
+	
+	public String cadastrarCarona(String origem, String destino, String data, String hora, String vagas) throws Exception{
+		caronas.add(new Carona(origem, destino, data, hora, vagas));
+		return "123456";
 	}
 
 	public String getLogin() {
@@ -37,7 +44,7 @@ public class Usuario {
 	
 	public void setSenha(String senha) throws Exception {
 		if(senha == null || senha.equals("")){
-			throw new Exception("Senha invÃ¡lida");
+			throw new Exception("Senha inválida");
 		}
 		
 		this.senha = senha;
@@ -49,7 +56,7 @@ public class Usuario {
 	
 	public void setNome(String nome) throws Exception {
 		if(nome == null || nome.equals("")){
-			throw new Exception("Nome invÃ¡lido");
+			throw new Exception("Nome inválido");
 		}
 		
 		this.nome = nome;
@@ -61,7 +68,7 @@ public class Usuario {
 	
 	public void setEndereco(String endereco) throws Exception {
 		if(endereco == null || endereco.equals("")){
-			throw new Exception("Endereco invÃ¡lido");
+			throw new Exception("Endereco inválido");
 		}
 		
 		this.endereco = endereco;
@@ -73,18 +80,18 @@ public class Usuario {
 	
 	public void setEmail(String email) throws Exception {
 		if(email == null || email.equals("")){
-			throw new Exception("Email invÃ¡lido");
+			throw new Exception("Email inválido");
 		}
 		
 		this.email = email;
 	}
 	
-	public int getID() {
+	public String getID() {
 		return ID;
 	}
 	
-	public void setID(int iD) {
-		ID = iD;
+	public void setID(String iD) {
+		this.ID = iD;
 	}
 
 }

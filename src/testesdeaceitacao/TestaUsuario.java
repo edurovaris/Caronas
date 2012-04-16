@@ -17,6 +17,7 @@ public class TestaUsuario {
 		// Put the us1.txt file into the "test scripts" list
 
 		files.add("scripts" + File.separator + "us1.txt");
+		files.add("scripts" + File.separator + "us2.txt");
 
 		// Instantiate the Monopoly Game façade
 
